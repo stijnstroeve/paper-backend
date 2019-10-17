@@ -1,0 +1,23 @@
+{
+  "name": "paper-backend",
+  "version": "0.0.1",
+  "description": "Paper backend for creating easier api backends.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stijnstroeve/paper-backend.git"
+  },
+  "keywords": [
+    "backend",
+    "paper"
+  ],
+  "author": "Stijn Stroeve",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stijnstroeve/paper-backend/issues"
+  },
+  "homepage": "https://github.com/stijnstroeve/paper-backend#readme"
+}
