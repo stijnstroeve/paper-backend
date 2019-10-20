@@ -1,3 +1,6 @@
 node_modules
 .idea
+testing
+build
+
 package-lock.json

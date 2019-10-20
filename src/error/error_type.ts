@@ -1,6 +1,8 @@
 
 export class ErrorType {
-    private static unknown = new ErrorType('UNKNOWN', -1, "An unknown error occurred.");
+    public static unknown = new ErrorType("UNKNOWN", -1, "An unknown error occurred.");
+    public static not_enough_parameters = new ErrorType("NOT_ENOUGH_PARAMETERS", -2, "Not enough parameters were given.")
+    public static data_parse = new ErrorType("DATA_PARSE", -3, "An error occurred while parsing data types.");
 
     static types: ErrorType[] = [];
     static registerType(key: string | ErrorType, code?: number, description?: string): void {
@@ -10,12 +12,11 @@ export class ErrorType {
             this.types.push(new ErrorType(key, code, description));
         }
     }
-    static get(key: string): ErrorType | null {
-        this.types.forEach((type) => {
-           if(type.key == key) {
-               return key;
-           }
-        });
+    static get(key: string): ErrorType {
+        for(let i = 0; i < this.types.length; i++) {
+            const type = this.types[i];
+            if(type.key == key) return type;
+        }
         return this.unknown;
     }
     key: string;

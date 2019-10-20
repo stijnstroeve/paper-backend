@@ -4,7 +4,4 @@ export abstract class Module {
 
     abstract name: string;
     abstract moduleMethods: ModuleMethod[];
-
-    abstract registerModuleMethods(): void;
-
 }

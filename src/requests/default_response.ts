@@ -1,5 +1,5 @@
 import {Error} from "../error/error";
-import {ModuleRequest} from "./ModuleRequest";
+import {ModuleRequest} from "./module_request";
 
 export class DefaultResponse {
     request: ModuleRequest;
@@ -18,7 +18,7 @@ export class DefaultResponse {
         if(this.error) {
             Object.assign(object, {error: this.error.json()});
 
-            this.error.error = undefined; //Make sure the error doesnt get sent to the client.
+            this.error.error = undefined; //Make sure the error itself doesnt get sent to the client.
         }
 
         return object;
