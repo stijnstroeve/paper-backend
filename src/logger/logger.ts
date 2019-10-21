@@ -1,5 +1,6 @@
 import {Color} from "./Color";
 import {LogType} from "./log_type";
+import {PaperConfig} from "../paper_config";
 
 export default class Logger {
     static log(message: string, color: Color = Color.WHITE) {
@@ -13,4 +14,14 @@ export default class Logger {
         return date.toLocaleTimeString();
     }
 
+    private config: PaperConfig;
+    constructor(config: PaperConfig) {
+        this.config = config;
+    }
+    public log(message: string, color: Color = Color.WHITE) {
+        if(!this.config.suppressMessages) Logger.log(message, color);
+    }
+    public logType(type: LogType, message: string) {
+        if(!this.config.suppressMessages) Logger.logType(type, message);
+    }
 }
