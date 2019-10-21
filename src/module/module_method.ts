@@ -7,7 +7,6 @@ export abstract class ModuleMethod {
 
     abstract request: string;
     abstract requestType: RequestType;
-    abstract needsAuthentication: boolean; //Gives access to the request.User object.
     abstract requiredParameters: IParameter[];
     abstract optionalParameters: IParameter[];
 

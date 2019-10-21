@@ -1,8 +1,10 @@
 
 export class ErrorType {
     public static unknown = new ErrorType("UNKNOWN", -1, "An unknown error occurred.");
-    public static not_enough_parameters = new ErrorType("NOT_ENOUGH_PARAMETERS", -2, "Not enough parameters were given.")
-    public static data_parse = new ErrorType("DATA_PARSE", -3, "An error occurred while parsing data types.");
+    public static not_enough_parameters = new ErrorType("NOT_ENOUGH_PARAMETERS", -2, "Not enough parameters were given.");
+    public static unknown_parameter = new ErrorType("UNKNOWN_PARAMETER", -3, "Unknown parameter '[PARAMETER]'.");
+    public static multiple_parameters = new ErrorType("MULTIPLE_PARAMETERS", -4, "Multiple parameters found with name '[PARAMETER]'.");
+    public static data_parse = new ErrorType("DATA_PARSE", -5, "An error occurred while parsing parameter '[PARAMETER]' of data type '[DATATYPE]'.");
 
     static types: ErrorType[] = [];
     static registerType(key: string | ErrorType, code?: number, description?: string): void {
