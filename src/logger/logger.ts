@@ -22,6 +22,10 @@ export default class Logger {
         if(!this.config.suppressMessages) Logger.log(message, color);
     }
     public logType(type: LogType, message: string) {
-        if(!this.config.suppressMessages) Logger.logType(type, message);
+        if(type == LogType.WARNING) {
+            if(!this.config.suppressWarnings) Logger.logType(type, message);
+        } else {
+            if(!this.config.suppressMessages) Logger.logType(type, message);
+        }
     }
 }

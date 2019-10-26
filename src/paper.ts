@@ -7,6 +7,7 @@ import express from "express";
 import {Express} from "express-serve-static-core";
 import Logger from "./logger/logger";
 import {LogType} from "./logger/log_type";
+import rateLimit from "express-rate-limit";
 
 export class Paper {
     protected logger: Logger;
@@ -37,9 +38,18 @@ export class ExpressPaper extends Paper {
 
         this.checkConfig();
         this.app = express();
+
+        this.setup();
     }
     private checkConfig() {
         if(!this.config.express) throw new Error("Express config is not set.");
+    }
+    private setup() {
+        if(this.config.express && this.config.express.rateLimitOptions) {
+            const limit = rateLimit(this.config.express.rateLimitOptions);
+            this.app.use(limit);
+        }
+
     }
     listen(port?: number, callback?: () => void) {
         this.app.use(this.getRoutes());

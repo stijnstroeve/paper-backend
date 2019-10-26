@@ -1,10 +1,13 @@
+import rateLimit from "express-rate-limit";
+
 export interface PaperConfig {
     environment: "development" | "production",
-    suppressWarnings: boolean, //TODO: implement
+    suppressWarnings: boolean,
     suppressMessages: boolean,
     express?: ExpressPaperConfig
 }
 
 export interface ExpressPaperConfig {
-    port?: number
+    port?: number,
+    rateLimitOptions?: rateLimit.Options
 }

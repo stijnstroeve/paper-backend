@@ -5,6 +5,7 @@ import {Module} from "../module/module";
 import {ModuleMethod} from "../module/module_method";
 import {ModuleRequestMiddleware} from "./middleware/module_request";
 import {ParameterMiddleware} from "./middleware/parameter_middleware";
+import {ModuleRequest} from "../requests/module_request";
 
 export class MiddlewareHandler {
     middleware: Middleware[];
@@ -14,10 +15,10 @@ export class MiddlewareHandler {
     registerMiddleware(newMiddleware: Middleware) {
         this.middleware.push(newMiddleware);
     }
-    getMiddleware(module: Module, method: ModuleMethod): RequestHandlerParams {
+    getMiddleware(module: Module, method: ModuleMethod, request: ModuleRequest): RequestHandlerParams {
         const handlerList: RequestHandlerParams[] = [];
         this.middleware.forEach((item) => {
-            handlerList.push(item.handle(module, method));
+            handlerList.push(item.handle(module, method, request));
         });
         return compose(handlerList);
     }

@@ -1,6 +1,6 @@
 {
   "name": "paper-backend",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Paper backend for creating easier api backends.",
   "main": "index.js",
   "scripts": {
@@ -22,9 +22,13 @@
   "homepage": "https://github.com/stijnstroeve/paper-backend#readme",
   "dependencies": {
     "compose-middleware": "^5.0.1",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "express-rate-limit": "^5.0.0"
   },
   "devDependencies": {
-    "@types/express": "^4.17.1"
+    "@types/express": "^4.17.1",
+    "@types/express-rate-limit": "^3.3.3",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.4"
   }
 }

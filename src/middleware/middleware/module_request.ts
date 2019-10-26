@@ -6,12 +6,10 @@ import {ModuleMethod} from "../../module/module_method";
 import {ModuleRequest} from "../../requests/module_request";
 
 export class ModuleRequestMiddleware extends Middleware {
-    handle(module: Module, method: ModuleMethod): RequestHandlerParams {
+    handle(module: Module, method: ModuleMethod, request: ModuleRequest): RequestHandlerParams {
         return (req: Request, res: Response, next: Function) => {
-            const request: ModuleRequest = new ModuleRequest(req, res, method);
-
-            req.module = module;
-            req.moduleRequest = request;
+            request.request = req;
+            request.response = res;
             next();
         }
     }

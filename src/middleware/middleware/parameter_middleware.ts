@@ -33,13 +33,10 @@ export class ParameterMiddleware extends Middleware {
         });
         return true;
     }
-    handle(module: Module, method: ModuleMethod): RequestHandlerParams {
+    handle(module: Module, method: ModuleMethod, request: ModuleRequest): RequestHandlerParams {
         return (req: Request, res: Response, next: Function) => {
             //Set the parameters of the request.
-            let request: ModuleRequest = req.moduleRequest;
             request.parameters = method.requestType == RequestType.GET ? req.query : req.body;
-
-            console.log(request.parameters);
 
             if(this.checkParameters(request)) {
                 let goNext = true;

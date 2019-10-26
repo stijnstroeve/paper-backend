@@ -4,35 +4,33 @@ import {DefaultResponse} from "./default_response";
 import {Error} from "../error/error";
 
 export class ModuleRequest {
-    private readonly _request: Request;
-    private readonly _response: Response;
+    request?: Request;
+    response?: Response;
     private readonly _method: ModuleMethod;
     private _parameters?: any;
 
-    constructor(request: Request, response: Response, method: ModuleMethod) {
-        this._request = request;
-        this._response = response;
+    constructor(method: ModuleMethod) {
         this._method = method;
     }
 
     respond(data: any) {
         let response = new DefaultResponse(this, true, data).json();
 
-        this._response.send(response);
+        if(this.response) {
+            this.response.send(response);
+        }
     }
 
     error(error: Error, status?: number) {
         let response = new DefaultResponse(this, false, null, error).json();
 
-        if(status) {
-            this._response.status(status).send(response);
-        } else {
-            this._response.send(response);
+        if(this.response) {
+            if (status) {
+                this.response.status(status).send(response);
+            } else {
+                this.response.send(response);
+            }
         }
-    }
-
-    get request(): Request {
-        return this._request;
     }
 
     get method(): ModuleMethod {
