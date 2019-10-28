@@ -1,5 +1,5 @@
 {
-  "name": "paper-backend",
+  "name": "paper-wrapper",
   "version": "0.0.5",
   "description": "Paper backend for creating easier api backends.",
   "main": "index.js",
