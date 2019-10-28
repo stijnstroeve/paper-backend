@@ -14,5 +14,7 @@ export * from "./module/module_method";
 export * from "./middleware/middleware_handler";
 export * from "./middleware/middleware";
 export * from "./logger/logger";
+export * from "./logger/log_type";
+export * from "./logger/color";
 export * from "./error/error";
 export * from "./error/error_type";
