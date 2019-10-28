@@ -25,6 +25,11 @@ export class Paper {
     registerModule(module: Module) {
         this.modules.register(module);
     }
+    registerModules(modules: Module[]) {
+        modules.forEach((module) => {
+            this.registerModule(module);
+        });
+    }
     getRoutes() {
         return this.router.registerRoutes(this.middleware, this.modules);
     }
