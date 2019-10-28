@@ -1,4 +1,4 @@
-import {Error} from "../error/error";
+import Error from "../error/error";
 import ModuleRequest from "./module_request";
 
 export default class DefaultResponse {

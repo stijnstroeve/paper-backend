@@ -1,34 +1,38 @@
 {
-  "name": "paper-wrapper",
-  "version": "0.0.5",
-  "description": "Paper backend for creating easier api backends.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \\\"Error: no testing specified\\\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/stijnstroeve/paper-backend.git"
-  },
-  "keywords": [
-    "backend",
-    "paper"
-  ],
-  "author": "Stijn Stroeve",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/stijnstroeve/paper-backend/issues"
-  },
-  "homepage": "https://github.com/stijnstroeve/paper-backend#readme",
-  "dependencies": {
-    "compose-middleware": "^5.0.1",
-    "express": "^4.17.1",
-    "express-rate-limit": "^5.0.0"
-  },
-  "devDependencies": {
-    "@types/express": "^4.17.1",
-    "@types/express-rate-limit": "^3.3.3",
-    "ts-node": "^8.4.1",
-    "typescript": "^3.6.4"
-  }
+    "name": "paper-wrapper",
+    "version": "0.0.52",
+    "description": "Paper backend for creating easier api backends.",
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "scripts": {
+        "test": "echo \\\"Error: no testing specified\\\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/stijnstroeve/paper-backend.git"
+    },
+    "keywords": [
+        "backend",
+        "paper"
+    ],
+    "author": "Stijn Stroeve",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/stijnstroeve/paper-backend/issues"
+    },
+    "homepage": "https://github.com/stijnstroeve/paper-backend#readme",
+    "dependencies": {
+        "compose-middleware": "^5.0.1",
+        "express": "^4.17.1",
+        "express-rate-limit": "^5.0.0"
+    },
+    "devDependencies": {
+        "@types/express": "^4.17.1",
+        "@types/express-rate-limit": "^3.3.3",
+        "ts-node": "^8.4.1",
+        "typescript": "^3.6.4"
+    },
+    "files": [
+        "lib/**/*"
+    ]
 }

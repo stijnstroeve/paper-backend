@@ -1,9 +1,8 @@
 import express from "express";
-import {Request} from "express";
 import {RequestType} from "../requests/request_type";
-import {MiddlewareHandler} from "../middleware/middleware_handler";
-import {ModuleHandler} from "../module/module_handler";
-import {ModuleRequest} from "../requests/module_request";
+import MiddlewareHandler from "../middleware/middleware_handler";
+import ModuleHandler from "../module/module_handler";
+import ModuleRequest from "../requests/module_request";
 
 export default class Router {
     router = express.Router();

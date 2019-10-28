@@ -7,7 +7,7 @@ import ModuleMethod from "../../module/module_method";
 import Module from "../../module/module";
 import ModuleRequest from "../../requests/module_request";
 import {RequestType} from "../../requests/request_type";
-import {ErrorType} from "../../error/error_type";
+import ErrorType from "../../error/error_type";
 import IParameter from "../../requests/parameter";
 import {DataType, ParameterType} from "../../data_types/data_type";
 
