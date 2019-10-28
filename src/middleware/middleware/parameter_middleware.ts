@@ -1,17 +1,17 @@
-import Middleware from "../middleware";
+import {Middleware} from "../middleware";
 import {Request, Response} from "express";
 import {RequestHandlerParams} from "express-serve-static-core";
-import Error from "../../error/error";
-import Utils from "../../utils/utils";
-import ModuleMethod from "../../module/module_method";
-import Module from "../../module/module";
-import ModuleRequest from "../../requests/module_request";
+import {Error} from "../../error/error";
+import {Utils} from "../../utils/utils";
+import {ModuleMethod} from "../../module/module_method";
+import {Module} from "../../module/module";
+import {ModuleRequest} from "../../requests/module_request";
 import {RequestType} from "../../requests/request_type";
-import ErrorType from "../../error/error_type";
-import IParameter from "../../requests/parameter";
+import {ErrorType} from "../../error/error_type";
+import {IParameter} from "../../requests/parameter";
 import {DataType, ParameterType} from "../../data_types/data_type";
 
-export default class ParameterMiddleware extends Middleware {
+export class ParameterMiddleware extends Middleware {
     checkParameters(request: ModuleRequest): boolean {
         const keys = Object.keys(request.parameters);
         keys.forEach((key) => {

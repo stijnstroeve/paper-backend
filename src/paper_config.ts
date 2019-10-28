@@ -1,6 +1,6 @@
 import rateLimit from "express-rate-limit";
 
-export default interface PaperConfig {
+export interface PaperConfig {
     environment: "development" | "production",
     suppressWarnings: boolean,
     suppressMessages: boolean,

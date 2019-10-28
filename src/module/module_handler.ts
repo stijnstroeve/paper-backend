@@ -1,6 +1,6 @@
-import Module from "./module";
+import {Module} from "./module";
 
-export default class ModuleHandler {
+export class ModuleHandler {
     modules: Module[];
     constructor() {
         this.modules = [];

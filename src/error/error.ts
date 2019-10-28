@@ -1,6 +1,6 @@
-import ErrorType from "./error_type";
+import {ErrorType} from "./error_type";
 
-export default class Error {
+export class Error {
     reference: string;
     type: ErrorType;
     error: any;

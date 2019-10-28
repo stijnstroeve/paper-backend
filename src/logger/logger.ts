@@ -1,8 +1,8 @@
 import {Color} from "./color";
 import {LogType} from "./log_type";
-import PaperConfig from "../paper_config";
+import {PaperConfig} from "../paper_config";
 
-export default class Logger {
+export class Logger {
     static log(message: string, color: Color = Color.WHITE) {
         console.log('[' + this.getCurrentTime() + '] ' + color + message + Color.RESET);
     }

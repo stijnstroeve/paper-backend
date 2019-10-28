@@ -1,15 +1,15 @@
-import ModuleHandler from "./module/module_handler";
-import MiddlewareHandler from "./middleware/middleware_handler";
-import Router from "./router/router";
-import Module from "./module/module";
-import PaperConfig from "./paper_config";
+import {ModuleHandler} from "./module/module_handler";
+import {MiddlewareHandler} from "./middleware/middleware_handler";
+import {Router} from "./router/router";
+import {Module} from "./module/module";
+import {PaperConfig} from "./paper_config";
 import express from "express";
 import {Express} from "express-serve-static-core";
-import Logger from "./logger/logger";
+import {Logger} from "./logger/logger";
 import {LogType} from "./logger/log_type";
 import rateLimit from "express-rate-limit";
 
-export default class Paper {
+export class Paper {
     protected logger: Logger;
     protected readonly config: PaperConfig;
     protected modules: ModuleHandler;

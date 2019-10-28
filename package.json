@@ -1,6 +1,6 @@
 {
     "name": "paper-wrapper",
-    "version": "0.0.52",
+    "version": "0.0.54",
     "description": "Paper backend for creating easier api backends.",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",

@@ -1,6 +1,6 @@
-import ModuleMethod from "./module_method";
+import {ModuleMethod} from "./module_method";
 
-export default abstract class Module {
+export abstract class Module {
     abstract name: string;
     abstract moduleMethods: ModuleMethod[];
 }
