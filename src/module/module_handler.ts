@@ -7,6 +7,9 @@ export class ModuleHandler {
     }
 
     register(newModule: Module) {
+        if(!!this.getModule(newModule.name)) {
+            throw new Error("Module '" + newModule.name + "' is already registered.");
+        }
         this.modules.push(newModule);
     }
     getModule(name: string): Module | null {
