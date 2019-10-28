@@ -1,6 +1,6 @@
-import {Color} from "./Color";
+import {Color} from "./color";
 import {LogType} from "./log_type";
-import {PaperConfig} from "../paper_config";
+import PaperConfig from "../paper_config";
 
 export default class Logger {
     static log(message: string, color: Color = Color.WHITE) {

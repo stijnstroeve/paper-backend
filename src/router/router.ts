@@ -5,7 +5,7 @@ import {MiddlewareHandler} from "../middleware/middleware_handler";
 import {ModuleHandler} from "../module/module_handler";
 import {ModuleRequest} from "../requests/module_request";
 
-export class Router {
+export default class Router {
     router = express.Router();
 
     registerRoutes(middlewareHandler: MiddlewareHandler, moduleHandler: ModuleHandler): express.Router {

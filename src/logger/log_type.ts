@@ -1,4 +1,4 @@
-import {Color} from "./Color";
+import {Color} from "./color";
 
 export enum LogType {
     INFO = Color.WHITE,

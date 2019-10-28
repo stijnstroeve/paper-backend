@@ -1,9 +1,9 @@
 import {Request, Response} from "express";
 import {ModuleMethod} from "../module/module_method";
-import {DefaultResponse} from "./default_response";
+import DefaultResponse from "./default_response";
 import {Error} from "../error/error";
 
-export class ModuleRequest {
+export default class ModuleRequest {
     request?: Request;
     response?: Response;
     private readonly _method: ModuleMethod;

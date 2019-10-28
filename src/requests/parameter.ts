@@ -1,6 +1,6 @@
 import {DataType} from "../data_types/data_type";
 
-export interface IParameter {
+export default interface IParameter {
     name: string,
     type: DataType
 }

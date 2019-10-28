@@ -9,7 +9,7 @@ import Logger from "./logger/logger";
 import {LogType} from "./logger/log_type";
 import rateLimit from "express-rate-limit";
 
-export class Paper {
+export default class Paper {
     protected logger: Logger;
     protected readonly config: PaperConfig;
     protected modules: ModuleHandler;

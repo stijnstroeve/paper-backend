@@ -1,7 +1,7 @@
 import {Error} from "../error/error";
-import {ModuleRequest} from "./module_request";
+import ModuleRequest from "./module_request";
 
-export class DefaultResponse {
+export default class DefaultResponse {
     request: ModuleRequest;
     success: boolean;
     data: any;
