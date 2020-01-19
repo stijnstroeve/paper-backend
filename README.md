@@ -1,2 +1,2 @@
-# paper-backend
-Paper backend library.
+# paper-wrapper
+Paper wrapper library.
