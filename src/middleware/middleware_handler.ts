@@ -9,12 +9,29 @@ import {ModuleRequest} from "../requests/module_request";
 
 export class MiddlewareHandler {
     middleware: Middleware[];
+
     constructor() {
-        this.middleware = [new ModuleRequestMiddleware(), new ParameterMiddleware()];
+        // Add the default middleware
+        this.middleware = [
+            new ModuleRequestMiddleware(),
+            new ParameterMiddleware()
+        ];
     }
-    registerMiddleware(newMiddleware: Middleware) {
-        this.middleware.push(newMiddleware);
+
+    /**
+     * Add a middleware to the list
+     * @param middleware The middleware to add
+     */
+    public addMiddleware(middleware: Middleware) {
+        this.middleware.push(middleware);
     }
+
+    /**
+     * Turns all middleware into 1 usable middleware
+     * @param module The module to handle
+     * @param method The method to handle
+     * @param request The request to handle
+     */
     getMiddleware(module: Module, method: ModuleMethod, request: ModuleRequest): RequestHandlerParams {
         const handlerList: RequestHandlerParams[] = [];
         this.middleware.forEach((item) => {

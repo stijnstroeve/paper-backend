@@ -15,6 +15,7 @@ export class Paper {
     protected modules: ModuleHandler;
     protected middleware: MiddlewareHandler;
     protected router: Router;
+
     constructor(config: PaperConfig) {
         this.config = config;
         this.modules = new ModuleHandler();
@@ -22,15 +23,26 @@ export class Paper {
         this.router = new Router();
         this.logger = new Logger(this.config);
     }
-    registerModule(module: Module) {
-        this.modules.register(module);
+
+    /**
+     * Registers the given module
+     * @param module The module to register
+     */
+    public addModule(module: Module) {
+        this.modules.addModule(module);
     }
-    registerModules(modules: Module[]) {
+
+    /**
+     * Registers the given modules
+     * @param modules The modules to register
+     */
+    public addModules(modules: Module[]) {
         modules.forEach((module) => {
-            this.registerModule(module);
+            this.addModule(module);
         });
     }
-    getRoutes() {
+
+    public getRoutes() {
         return this.router.registerRoutes(this.middleware, this.modules);
     }
 

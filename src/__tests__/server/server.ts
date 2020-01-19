@@ -17,7 +17,7 @@ export class Server {
         this.register();
     }
     register() {
-        this.server.registerModules([
+        this.server.addModules([
             new TestModule(),
             new ChildModule()
         ]);
