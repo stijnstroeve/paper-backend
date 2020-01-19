@@ -12,6 +12,11 @@ import {IParameter} from "../../requests/parameter";
 import {DataType, ParameterType} from "../../data_types/data_type";
 
 export class ParameterMiddleware extends Middleware {
+
+    /**
+     * Checks the parameters of the given module request
+     * @param request
+     */
     checkParameters(request: ModuleRequest): boolean {
         const keys = Object.keys(request.parameters);
         keys.forEach((key) => {
@@ -33,6 +38,10 @@ export class ParameterMiddleware extends Middleware {
         });
         return true;
     }
+
+    /**
+     * Checks if all parameters are the right parameters in the current request
+     */
     handle(module: Module, method: ModuleMethod, request: ModuleRequest): RequestHandlerParams {
         return (req: Request, res: Response, next: Function) => {
             //Set the parameters of the request.

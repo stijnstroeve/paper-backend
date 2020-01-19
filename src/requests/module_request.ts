@@ -4,45 +4,54 @@ import {DefaultResponse} from "./default_response";
 import {Error} from "../error/error";
 
 export class ModuleRequest {
+
     request?: Request;
     response?: Response;
-    private readonly _method: ModuleMethod;
-    private _parameters?: any;
+    parameters?: any;
+    readonly method: ModuleMethod;
 
     constructor(method: ModuleMethod) {
-        this._method = method;
+        this.method = method;
     }
 
-    respond(data: any) {
-        let response = new DefaultResponse(this, true, data).json();
-
+    /**
+     * Sends the given response to the client
+     * @param response The response to send to the client
+     * @param status The http response status
+     */
+    private sendResponse(response: any, status?: number) {
         if(this.response) {
-            this.response.send(response);
-        }
-    }
-
-    error(error: Error, status?: number) {
-        let response = new DefaultResponse(this, false, null, error).json();
-
-        if(this.response) {
+            // Check if the response should be send with a different status
             if (status) {
+                // Send the response with the given status
                 this.response.status(status).send(response);
             } else {
+                // Send the response without the given status
                 this.response.send(response);
             }
         }
     }
 
-    get method(): ModuleMethod {
-        return this._method;
+    /**
+     * Sends the given data to the client
+     * @param data The data to send to the client
+     * @param status The http response status
+     */
+    public respond(data: any, status?: number) {
+        const response = new DefaultResponse(this, true, data).toObject();
+
+        this.sendResponse(response, status);
     }
 
-    get parameters(): any {
-        return this._parameters;
-    }
+    /**
+     * Sends the given error to the client
+     * @param error The error to send
+     * @param status The http response status
+     */
+    public error(error: Error, status?: number) {
+        const response = new DefaultResponse(this, false, null, error).toObject();
 
-    set parameters(value: any) {
-        this._parameters = value;
+        this.sendResponse(response, status);
     }
 
 }

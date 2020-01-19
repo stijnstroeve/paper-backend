@@ -2,18 +2,28 @@ import {Module} from "./module";
 
 export class ModuleHandler {
     modules: Module[];
+
     constructor() {
         this.modules = [];
     }
 
-    register(newModule: Module) {
-        if(!!this.getModule(newModule.name)) {
-            throw new Error("Module '" + newModule.name + "' is already registered.");
+    /**
+     * Adds the given module to the modules list
+     * @param module The module to add
+     */
+    public addModule(module: Module) {
+        if(!!this.findModule(module.name)) {
+            throw new Error(`Module '${module.name}' is already registered.`);
         }
-        this.modules.push(newModule);
+        this.modules.push(module);
     }
-    getModule(name: string): Module | null {
-        let module = this.modules.find((module) => module.name === name);
-        return module ? module : null;
+
+    /**
+     * Tries to retrieve a module by the given name
+     * @param name The name of the module to find
+     * @returns The found module or null if none was found
+     */
+    public findModule(name: string): Module | null {
+        return this.modules.find((module) => module.name === name) || null;
     }
 }

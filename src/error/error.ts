@@ -15,21 +15,34 @@ export class Error {
         this.extra = extra;
     }
 
+    /**
+     * Parses the error's description
+     * @returns The parse ddescription
+     */
     parseDescription() {
         let parsed = this.type.description;
         if(this.variables) {
             for(let i = 0; i < this.variables.length; i++) {
                 let variable = this.variables[i];
                 parsed = parsed.replace("[" + variable.name + "]", variable.variable);
-
             }
         }
         return parsed;
     }
 
-    json() {
-        let object = {key: this.type.key, refCode: this.type.code, reference: this.reference, description: this.parseDescription()};
+    /**
+     * Converts the current error into a usable object for the client
+     * @returns An error object that can be sent to the client
+     */
+    toObject() {
+        let object = {
+            key: this.type.key,
+            refCode: this.type.code,
+            reference: this.reference,
+            description: this.parseDescription()
+        };
 
+        // Adds the extra variable to the error
         if(this.extra) {
             Object.assign(object, {[this.extra.name]: this.extra.extra});
         }
