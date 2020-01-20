@@ -11,7 +11,7 @@ $ npm install paper-wrapper
 ```
 or
 ```bash
-$ yarn add express
+$ yarn add paper-wrapper
 ```
 
 ## Examples
